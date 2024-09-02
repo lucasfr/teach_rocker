@@ -1,4 +1,4 @@
-FROM rocker/r-base:4.0.4
+FROM rocker/r-base:latest
 
 ADD /src /src
 WORKDIR /src
