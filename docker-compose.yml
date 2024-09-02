@@ -1,11 +1,17 @@
 version: "3"
 services:
-  r:
-    container_name: r-base
-    build: .
-    environment: 
-          - DISPLAY=$DISPLAY
+
+  rstudio:
+    image: teach_rocker:latest
+    build:
+      context: ./rstudio
+    ports:
+      - "8787:8787"
     volumes:
           - "./src:/src"
           - "./data:/data"
-    tty: true
+    environment:
+          - PASSWORD=letmein
+          - ROOT=true
+          - USERID=1001
+          - GROUPID=1001
